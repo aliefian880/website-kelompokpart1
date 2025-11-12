@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV. Global Indotech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header-background text-white position-relative" style="background: linear-gradient(90deg, #004e92, #000428);">
+        <!-- Logo di kiri atas -->
+        <div class="position-absolute top-0 start-0 p-3">
+            <img src="https://globalindotec.co.id/wp-content/uploads/2025/04/ChatGPT-Image-25-Apr-2025-10.35.52-e1745552293636.png" alt="Logo CV Global Indotech" style="width:130px; height:auto; max-height:70px; object-fit:contain;">
+        </div>
+
+        <!-- Tombol Google Maps di kanan atas -->
+        <div class="position-absolute top-0 end-0 p-3">
+            <a href="https://share.google/g6W7jNBPlKl9L2tjT" target="_blank" title="Lihat di Google Maps">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1428px-Google_Maps_icon_%282020%29.svg.png" alt="Google Maps" style="width:45px; height:auto; border-radius:8px;">
+            </a>
+        </div>
+
+        <!-- Isi Header -->
+        <div class="header-overlay text-center py-5">
+            <h1>CV Global Indotech</h1>
+            <h5 class="text-white mb-3">Selamat datang di website CV Global Indotech</h5>
+
+            <!-- Tombol WhatsApp & Gmail -->
+            <div class="d-flex justify-content-center align-items-center mb-3 flex-wrap">
+                <!-- Tombol WhatsApp -->
+                <a href="https://wa.me/6285655240480?text=Halo%20CV%20Global%20Indotech%2C%20saya%20ingin%20bertanya%20lebih%20lanjut%20tentang%20layanan%20Anda." class="btn btn-success btn-sm m-1" target="_blank">
+                    <img src="https://asset-2.tstatic.net/jogja/foto/bank/images/Whatsapp-logo.jpg" alt="WA" style="width:20px; margin-right:5px; vertical-align:middle;"> Hubungi via WhatsApp
+                </a>
+
+                <!-- Tombol Gmail (100% Berfungsi) -->
+                <a id="btnGmail" class="btn btn-danger btn-sm m-1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail" style="width:20px; margin-right:5px; vertical-align:middle;"> Kirim via Gmail
+                </a>
+            </div>
+
+            <!-- Keterangan jam buka -->
+            <p id="jam-buka" class="fw-bold mt-2"></p>
+
+            <p class="text-white">
+                Perum Griya Permata Regency, Blok R No.1, Desa Durungbedung, Kecamatan Candi, Kabupaten Sidoarjo, Jawa Timur
+            </p>
+
+            <!-- Tombol navigasi -->
+            <div class="btn-group flex-wrap mt-3">
+                <button class="btn btn-outline-light m-1" onclick="scrollToSection('value-perusahaan')">Value Perusahaan</button>
+                <button class="btn btn-outline-light m-1" onclick="scrollToSection('profil')">Profil Perusahaan</button>
+                <button class="btn btn-outline-light m-1" onclick="scrollToSection('layanan-perusahaan')">Layanan Perusahaan</button>
+                <button class="btn btn-outline-light m-1" onclick="scrollToSection('artikel')">Artikel</button>
+                <button class="btn btn-outline-light m-1" onclick="scrollToSection('kontak')">Kontak</button>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // Fungsi scroll halus ke bagian halaman
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        // Script jam buka otomatis
+        function cekJamBuka() {
+            const sekarang = new Date();
+            const hari = sekarang.getDay();
+            const jam = sekarang.getHours();
+            const menit = sekarang.getMinutes();
+            const elemen = document.getElementById("jam-buka");
+
+            let buka = false;
+            let keterangan = "";
+
+            if (hari >= 1 && hari <= 5) {
+                if ((jam > 8 && jam < 17) || (jam === 8 && menit >= 0 && jam <= 17)) buka = true;
+                keterangan = "Senin–Jum’at: 08.00–17.00";
+            } else if (hari === 6) {
+                if ((jam > 8 && jam < 13) || (jam === 8 && menit >= 0 && jam <= 13)) buka = true;
+                keterangan = "Sabtu: 08.00–13.00";
+            } else {
+                buka = false;
+                keterangan = "Minggu: Tutup";
+            }
+
+            if (buka) {
+                elemen.innerHTML = "🕒 Buka Sekarang (" + keterangan + ")";
+                elemen.style.color = "#00ff88";
+            } else {
+                elemen.innerHTML = "🔒 Tutup Sekarang (" + keterangan + ")";
+                elemen.style.color = "#ff4d4d";
+            }
+        }
+
+        cekJamBuka();
+        setInterval(cekJamBuka, 60000);
+
+        // ✅ Tombol Gmail dengan teks & subjek baru
+        document.getElementById("btnGmail").addEventListener("click", function() {
+            const to = "cs@globalindotech.co.id";
+            const cc = "customer.service@gmail.com";
+            const bcc = "admin@globalindotech.co.id";
+            const from = "pelanggananda@email.com"; // email bebas pengirim
+            const subject = encodeURIComponent("Konfirmasi Pemesanan / Tanya ke CS CV Global Indotech");
+            const body = encodeURIComponent(
+                "Halo CV Global Indotech,\n\n" +
+                "Selamat datang di CV Global Indotech.\n" +
+                "Apa ada yang bisa kami bantu hari ini?\n\n" +
+                "Berikut informasi Anda:\n" +
+                "- Dari: " + from + "\n" +
+                "- Nama: (Nama Lengkap Anda)\n" +
+                "- Keperluan: (Tulis pertanyaan atau pemesanan Anda di sini)\n\n" +
+                "Kami siap membantu Anda secepatnya.\n\nSalam hangat,\nTim CV Global Indotech"
+            );
+
+            const gmailURL =
+                "https://mail.google.com/mail/?view=cm&fs=1" +
+                `&to=${to}&cc=${cc}&bcc=${bcc}&su=${subject}&body=${body}`;
+
+            window.open(gmailURL, "_blank");
+        });
+    </script>
+</body>
+
+</html>
+
+
+<section id="value-perusahaan" class="py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Value Perusahaan</h2>
+        <div class="row text-center">
+            <!-- Kualitas Terbaik -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <img src="https://w7.pngwing.com/pngs/11/946/png-transparent-quality-control-computer-icons-quality-assurance-quality-miscellaneous-service-logo-thumbnail.png" alt="Kualitas Terbaik" class="mb-3" style="width:70px; height:auto;">
+                        <h4>1. Kualitas Terbaik</h4>
+                        <p>Memberikan kualitas terbaik untuk semua produk yang kami tawarkan.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Profesional -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <img src="https://w7.pngwing.com/pngs/527/663/png-transparent-logo-person-user-person-icon-rectangle-photography-computer-wallpaper-thumbnail.png" alt="Profesional" class="mb-3" style="width:70px; height:auto;">
+                        <h4>2. Profesional</h4>
+                        <p>Siap memberikan pelayanan terbaik untuk kepuasan customer.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Terpercaya -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <img src="https://id-test-11.slatic.net/p/7a94512666081090b67d10bb61315bd1.png" alt="Terpercaya" class="mb-3" style="width:70px; height:auto;">
+                        <h4>3. Terpercaya</h4>
+                        <p>Telah dipercaya oleh banyak masyarakat Indonesia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="profil" class="py-5">
+    <div class="container">
+        <h2 class="mb-4">Profil Perusahaan</h2>
+        <p>CV Global Indotech merupakan perusahaan yang bergerak di bidang supplier, fabrikasi dan repair machining...</p>
+        <div class="text-center my-4">
+            <img src="https://tristarperdanateknik.com/wp-content/uploads/2024/10/Galeri-CV.-Tristar-Perdana-Teknik-19.jpeg" alt="Alat Perusahaan" class="img-fluid rounded" style="max-width: 500px;">
+            <p class="mt-2">Salah satu alat yang digunakan oleh CV Global Indotech</p>
+        </div>
+        <h3>Visi Perusahaan</h3>
+        <p>Menjadi perusahaan yang sehat dengan menerapkan continuous improvement sehingga pencapaian kualitas dapat terwujud, serta memberikan harga yang kompetitif dan pengalaman.</p>
+        <h3>Misi Perusahaan</h3>
+        <ul>
+            <li>Memberikan pelayanan yang optimal dengan solusi terbaik</li>
+            <li>Memberikan harga dan kualitas terbaik</li>
+        </ul>
+    </div>
+</section>
+
+<section id="layanan-perusahaan" class="py-5">
+    <div class="container">
+        <h2 class="mb-4">Layanan Perusahaan</h2>
+        <ul class="list-group mb-4">
+            <li class="list-group-item">Alat listrik</li>
+            <li class="list-group-item">Perlengkapan rumah tangga</li>
+            <li class="list-group-item">Supplier pipa besi & stainless</li>
+            <li class="list-group-item">Alat teknik</li>
+            <li class="list-group-item">Jenis Pegas</li>
+        </ul>
+        <div class="mb-4 text-center">
+            <button class="btn btn-outline-secondary m-1" onclick="window.location.href='#alat-listrik'">Alat Listrik</button>
+            <button class="btn btn-outline-secondary m-1" onclick="window.location.href='#perlengkapan-rumah-tangga'">Perlengkapan Rumah Tangga</button>
+            <button class="btn btn-outline-secondary m-1" onclick="window.location.href='#pipa-besi'">Pipa Besi</button>
+            <button class="btn btn-outline-secondary m-1" onclick="window.location.href='#alat-teknik'">Alat Teknik</button>
+            <button class="btn btn-outline-secondary m-1" onclick="window.location.href='#jenis-pegas'">Jenis Pegas</button>
+        </div>
+
+        <!-- Alat Listrik -->
+        <div id="alat-listrik" class="mb-5">
+            <h3>Alat Listrik</h3>
+            <p>Butuh alat listrik berkualitas? Hubungi CV Global Indotech sekarang dan dapatkan penawaran terbaik hari ini juga!.</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK7GIsed2-bb85tf3PAXEPVZhTdtXT5VWJmQ&s" alt="Alat Listrik" class="img-fluid rounded mt-3">
+
+            <div class="mt-3 d-flex flex-wrap">
+                <!-- Tombol WhatsApp -->
+                <a href="https://wa.me/6281234149722?text=Halo%20CV%20Global%20Indotech,%20saya%20ingin%20memesan%20Alat%20Listrik." class="btn btn-success m-1">
+                    <img src="https://asset-2.tstatic.net/jogja/foto/bank/images/Whatsapp-logo.jpg" alt="WA" style="width:20px; margin-right:5px; vertical-align:middle;"> Hubungi via WhatsApp
+                </a>
+
+                <!-- Tombol Gmail -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aliefiansubagia803@gmail.com&su=Pemesanan%20Alat%20Listrik%20-%20CV%20Global%20Indotech&body=Halo%20CV%20Global%20Indotech,%0ASaya%20ingin%20memesan%20alat%20listrik.%0AMohon%20informasi%20lebih%20lanjut."
+                    target="_blank" class="btn btn-danger m-1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail" style="width:20px; margin-right:5px; vertical-align:middle;"> Pesan via Gmail
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Perlengkapan Rumah Tangga -->
+        <div id="perlengkapan-rumah-tangga" class="mb-5">
+            <h3>Perlengkapan Rumah Tangga</h3>
+            <p>Bikin rumah makin nyaman dan fungsional! Yuk cek perlengkapan rumah tangga pilihan dari CV Global Indotect! Hubungi WA atau Gmail kami di bawah ini.</p>
+
+            <img src="https://images.klgsys.com/pim/original/93/10515393/4aad2ea3-97a5-40b1-a2a1-09947c3edadc_10515393_1.jpg" alt="Rumah Tangga" class="img-fluid rounded mt-3">
+
+            <div class="mt-3">
+                <!-- Tombol WhatsApp -->
+                <a href="https://wa.me/6281333563005?text=Halo%20CV%20Global%20Indotech,%20saya%20ingin%20memesan%20Perlengkapan%20Rumah%20Tangga." class="btn btn-success m-1">
+                    <img src="https://asset-2.tstatic.net/jogja/foto/bank/images/Whatsapp-logo.jpg" alt="WA" style="width:20px; margin-right:5px; vertical-align:middle;"> Hubungi via WhatsApp
+                </a>
+
+                <!-- ✅ Tambahan Tombol Gmail -->
+                <button id="gmailRumahTangga" class="btn btn-danger m-1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
+                 alt="Gmail" style="width:20px; margin-right:5px; vertical-align:middle;">
+            Hubungi via Gmail
+        </button>
+            </div>
+        </div>
+
+        <!-- ✅ SCRIPT JAVASCRIPT UNTUK TOMBOL GMAIL -->
+        <script>
+            document.getElementById("gmailRumahTangga").addEventListener("click", function() {
+                const email = "globalindotect@gmail.com"; // ✅ Ganti dengan email tujuan kamu
+                const subject = "Pemesanan Perlengkapan Rumah Tangga";
+                const body = "Selamat pagi, apa yang bisa kami bantu terkait pemesanan Perlengkapan Rumah Tangga?";
+
+                const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${
+            encodeURIComponent(subject)
+        }&body=${encodeURIComponent(body)}`;
+
+                window.open(gmailURL, "_blank");
+            });
+        </script>
+
+
+        <!-- Pipa Besi & Stainless -->
+        <div id="pipa-besi" class="mb-5">
+            <h3>Pipa Besi & Stainless</h3>
+            <p>Bangun lebih kuat dengan alat besi pilihan dari CV Global Indotect – Lengkap, terpercaya, dan terjangkau. Hubungi WA atau Gmail kami di bawah ini.</p>
+
+            <div class="mt-3">
+                <!-- Tombol WhatsApp -->
+                <a href="https://wa.me/6285646011719?text=Halo%20CV%20Global%20Indotech,%20saya%20ingin%20memesan%20Pipa%20Besi%20dan%20Stainless." class="btn btn-success m-1">
+                    <img src="https://asset-2.tstatic.net/jogja/foto/bank/images/Whatsapp-logo.jpg" alt="WA" style="width:20px; margin-right:5px; vertical-align:middle;"> Hubungi via WhatsApp
+                </a>
+
+                <!-- ✅ Tambahan Tombol Gmail -->
+                <button id="gmailPipaBesi" class="btn btn-danger m-1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
+                 alt="Gmail" style="width:20px; margin-right:5px; vertical-align:middle;">
+            Hubungi via Gmail
+        </button>
+            </div>
+        </div>
+
+        <!-- ✅ JAVASCRIPT UNTUK TOMBOL GMAIL -->
+        <script>
+            document.getElementById("gmailPipaBesi").addEventListener("click", function() {
+                const email = "aliefiansubagiakerja@gmail.com"; // ✅ Atur email tujuan
+                const subject = "Pemesanan Pipa Besi & Stainless";
+                const body = "Selamat pagi, apa yang bisa kami bantu terkait pemesanan Pipa Besi & Stainless?";
+
+                const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${
+            encodeURIComponent(subject)
+        }&body=${encodeURIComponent(body)}`;
+
+                window.open(gmailURL, "_blank");
+            });
+        </script>
+
+
+        <!-- Alat Teknik -->
+        <div id="alat-teknik" class="mb-5">
+            <h3>Alat Teknik</h3>
+            <p>
+                Cari alat teknik berkualitas untuk proyek Anda? CV Global Indotect siap menyediakan kebutuhan Anda secara lengkap! Hubungi WhatsApp atau Gmail kami di bawah ini.
+            </p>
+
+            <img src="https://swift-thumbor.sirclocdn.com/unsafe/420x420/filters:format(jpeg):quality(90)/web.mitra10.com/media/catalog/product/0/9/0900010112_website_1.jpg" alt="Alat Teknik" class="img-fluid rounded mt-3">
+
+            <div class="mt-3">
+
+                <!-- ✅ Tombol WhatsApp -->
+                <a href="https://wa.me/6285646011719?text=Halo%20CV%20Global%20Indotech,%20saya%20ingin%20memesan%20Alat%20Teknik." class="btn btn-success m-1">
+                    <img src="https://asset-2.tstatic.net/jogja/foto/bank/images/Whatsapp-logo.jpg" alt="WA" style="width:20px; margin-right:5px; vertical-align:middle;"> Hubungi via WhatsApp
+                </a>
+
+                <!-- ✅ Tombol Gmail -->
+                <button id="gmailAlatTeknik" class="btn btn-danger m-1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" 
+                 alt="Gmail" 
+                 style="width:20px; margin-right:5px; vertical-align:middle;">
+            Hubungi via Gmail
+        </button>
+
+            </div>
+        </div>
+
+        <!-- ✅ SCRIPT AGAR TOMBOL GMAIL BEKERJA DENGAN BENAR -->
+        <script>
+            document.getElementById("gmailAlatTeknik").addEventListener("click", function() {
+
+                // ✅ Alamat email tujuan
+                const emailTujuan = "aliefiansubagia803@gmail.com";
+
+                // ✅ Subjek email
+                const subject = encodeURIComponent("Pemesanan Alat Teknik - CV Global Indotech");
+
+                // ✅ Isi Body email otomatis
+                const body = encodeURIComponent(
+                    "Selamat pagi, apa yang bisa kami bantu?\n\n" +
+                    "Saya ingin menanyakan atau memesan Alat Teknik.\n\n" +
+                    "Nama: \n" +
+                    "Keperluan: \n\n" +
+                    "Terima kasih."
+                );
+
+                // ✅ Generate URL Gmail Compose
+                const urlGmail =
+                    "https://mail.google.com/mail/?view=cm&fs=1" +
+                    `&to=${emailTujuan}&su=${subject}&body=${body}`;
+
+                // ✅ Buka Gmail di tab baru
+                window.open(urlGmail, "_blank");
+            });
+        </script>
+
+
+        <!-- Jenis Pegas -->
+        <div id="jenis-pegas" class="mb-5">
+            <h3>Jenis Pegas</h3>
+            <p>Butuh pegas spiral, tekan, atau tarik? CV Global Indotect siap memenuhi kebutuhan Anda dengan kualitas terbaik! Hubungi WA atau Gmail kami jika berminat memesan alat pegas di bawah ini.</p>
+
+            <div class="mt-3">
+                <!-- Tombol WhatsApp -->
+                <a href="https://wa.me/628970180971?text=Halo%20CV%20Global%20Indotech,%20saya%20ingin%20memesan%20Jenis%20Pegas." class="btn btn-success">
+                    <img src="https://asset-2.tstatic.net/jogja/foto/bank/images/Whatsapp-logo.jpg" alt="WA" style="width:20px; margin-right:5px; vertical-align:middle;"> Hubungi via WhatsApp
+                </a>
+
+                <!-- ✅ Tambahan Tombol Gmail -->
+                <button id="gmailPegas" class="btn btn-danger m-1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
+                 alt="Gmail" style="width:20px; margin-right:5px; vertical-align:middle;">
+            Hubungi via Gmail
+        </button>
+            </div>
+        </div>
+
+        <!-- ✅ SCRIPT JAVASCRIPT (WAJIB ADA AGAR TOMBOL GMAIL BERFUNGSI) -->
+        <script>
+            document.getElementById("gmailPegas").addEventListener("click", function() {
+                const email = "aliefiansubagia803@gmail.com"; // ✅ Ganti dengan email tujuanmu
+                const subject = "Pemesanan Jenis Pegas";
+                const body = "Selamat pagi, apa yang bisa kami bantu terkait pemesanan Jenis Pegas?";
+
+                // Buka Gmail menggunakan link compose
+                const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                window.open(gmailURL, "_blank");
+            });
+        </script>
+
+    </div>
+</section>
+
+<!-- Artikel -->
+<section id="artikel" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="mb-4 text-center">Artikel</h2>
+        <div class="text-center mb-4">
+            <div class="btn-group flex-wrap" role="group">
+                <button class="btn btn-outline-primary m-1" onclick="window.location.href='#artikel-alat-listrik'">Alat Listrik</button>
+                <button class="btn btn-outline-primary m-1" onclick="window.location.href='#artikel-perlengkapan-rumah-tangga'">Perlengkapan Rumah Tangga</button>
+                <button class="btn btn-outline-primary m-1" onclick="window.location.href='#artikel-pipa-besi'">Pipa Besi</button>
+                <button class="btn btn-outline-primary m-1" onclick="window.location.href='#artikel-alat-teknik'">Alat Teknik</button>
+                <button class="btn btn-outline-primary m-1" onclick="window.location.href='#artikel-jenis-pegas'">Jenis Pegas</button>
+            </div>
+        </div>
+
+        <article id="artikel-alat-listrik" class="mb-4">
+            <h4>Artikel Alat Listrik</h4>
+            <h2>Mengenal Alat Listrik</h2>
+            <p>
+                Alat kelistrikan yang dimaksudkan sebenarnya sudah Anda gunakan setiap harinya. Anda akan selalu menggunakannya beberapa kali dalam satu hari untuk mendukung berbagai aktivitas.
+            </p>
+
+            <h5>Kelebihan:</h5>
+            <ul>
+                <li>Daya tahan tinggi dengan material berkualitas.</li>
+                <li>Efisiensi energi untuk penggunaan lebih hemat.</li>
+                <li>Desain ergonomis memudahkan instalasi dan perawatan.</li>
+            </ul>
+
+            <!-- Logo tambahan -->
+            <div class="text-center mt-3">
+                <img src="https://down-id.img.susercontent.com/file/4242832cdd0bf7c800fae55711d1e091" alt="Logo Artikel Alat Listrik" style="width:80px; height:auto; border-radius:10px;">
+            </div>
+
+            <!-- Tombol menuju artikel lengkap -->
+            <div class="mt-3 text-center">
+                <a href="https://m.dekoruma.com/artikel/83020/alat-listrik-wajib-punya" target="_blank" class="btn btn-primary btn-sm" title="Baca artikel lengkap di Dekoruma">
+            🔗 Baca Selengkapnya
+        </a>
+            </div>
+        </article>
+
+
+
+        <article id="artikel-perlengkapan-rumah-tangga" class="mb-4">
+            <h4>Artikel Perlengkapan Rumah Tangga</h4>
+            <p>
+                Pilih perlengkapan rumah tangga yang fungsional dan hemat energi. Cek sertifikasi SNI, bandingkan harga, dan baca ulasan pengguna sebelum membeli.
+            </p>
+
+            <h5>Kelebihan:</h5>
+            <ul>
+                <li>Multi-fungsi untuk berbagai kebutuhan rumah.</li>
+                <li>Hemat listrik dengan teknologi terbaru.</li>
+                <li>Mudah dibersihkan dan tahan lama.</li>
+            </ul>
+
+            <!-- Logo tambahan -->
+            <div class="text-center mt-3">
+                <img src="https://png.pngtree.com/png-vector/20190702/ourmid/pngtree-homo-logo-love-logo-png-image_1532446.jpg" alt="Logo Artikel Perlengkapan Rumah Tangga" style="width:80px; height:auto; border-radius:10px;">
+            </div>
+
+            <!-- Tombol menuju artikel lengkap -->
+            <div class="mt-3 text-center">
+                <a href="https://m.dekoruma.com/artikel/141526/peralatan-rumah-tangga-praktis" target="_blank" class="btn btn-primary btn-sm" title="Baca artikel lengkap di Dekoruma">
+            🔗 Baca Selengkapnya
+        </a>
+            </div>
+        </article>
+
+
+        <article id="artikel-pipa-besi" class="mb-4 text-center">
+            <h4>Artikel Pipa Besi</h4>
+
+            <!-- Logo Pipa Besi -->
+            <img src="https://png.pngtree.com/png-vector/20241217/ourmid/pngtree-stack-of-stainless-steel-pipes-png-image_14801456.png" alt="Logo Pipa Besi" class="img-fluid mb-3" style="max-width: 200px; height: auto;">
+
+            <p>
+                Pipa besi kuat namun rentan karat. Untuk konstruksi outdoor, gunakan lapisan anti karat atau pipa galvanis agar umur pakai lebih panjang.
+            </p>
+
+            <h5>Kelebihan:</h5>
+            <ul class="text-start d-inline-block">
+                <li>Ketahanan mekanik tinggi untuk beban berat.</li>
+                <li>Kemampuan anti-korosi dengan lapisan khusus.</li>
+            </ul>
+
+            <!-- Tombol menuju artikel lengkap -->
+            <div class="mt-3">
+                <a href="https://pipapedia.com/pipa-besi/" target="_blank" class="btn btn-primary btn-sm" title="Baca artikel lengkap di Pipapedia">
+            🔗 Baca Selengkapnya
+        </a>
+            </div>
+        </article>
+
+
+        <article id="artikel-alat-teknik" class="mb-4 text-center">
+            <h4>Artikel Alat Teknik</h4>
+
+            <!-- Logo tambahan -->
+            <div class="text-center mt-3">
+                <img src="https://grahamultisarana.com/data/uploads/2017/10/alat-teknik.jpg" alt="Logo Artikel Alat Teknik" style="width:120px; height:auto; border-radius:10px;">
+            </div>
+
+            <p class="mt-3">
+                Alat teknik seperti bor dan gerinda harus dirawat: bersihkan setelah pakai, periksa mata bor, dan lumasi bagian bergerak agar performa optimal.
+            </p>
+
+            <h5>Kelebihan:</h5>
+            <ul class="text-start d-inline-block">
+                <li>Presisi tinggi untuk pekerjaan detail.</li>
+                <li>Mudah digenggam dengan pegangan anti-slip.</li>
+                <li>Performa stabil dengan getaran minimal.</li>
+            </ul>
+
+            <!-- Tombol menuju artikel lengkap -->
+            <div class="mt-3">
+                <a href="https://grahamultisarana.com/2017/10/mengenal-alat-teknik/?srsltid=AfmBOopB0YHUwraZeZFGEvi6Vpt04l_gu-BKDDMTFTKtM_7eytlGThQY" target="_blank" class="btn btn-primary btn-sm" title="Baca artikel lengkap di Graha Multisarana">
+            🔗 Baca Selengkapnya
+        </a>
+            </div>
+        </article>
+
+        <article id="artikel-jenis-pegas" class="mb-4 text-center">
+            <h4>Artikel Jenis Pegas</h4>
+            <p>
+                Terdapat berbagai jenis pegas: spiral untuk suspensi, tekan untuk penahan beban, dan tarik untuk mekanisme pengembalian. Pilih sesuai aplikasi.
+            </p>
+
+            <!-- Logo Jenis Pegas -->
+            <div class="text-center mt-3">
+                <img src="https://lh5.googleusercontent.com/proxy/0yuQsnJIfcfEz2zIZpkqfiH0S-RVrl1Fh1otQOwYF8X_vA1b1zfLRZOSHkcdwfp4oS8PLF4Ef4liQ6xONLgKOQSV0-qn07OoLeULee3vmuB-adTvll1OwqSpsA" alt="Logo Jenis Pegas" style="width:100px; height:auto; border-radius:10px;">
+            </div>
+
+            <h5 class="mt-3">Kelebihan:</h5>
+            <ul class="text-start d-inline-block">
+                <li>Beragam tipe untuk berbagai kebutuhan mekanik.</li>
+                <li>Return force konsisten dan tahan lama.</li>
+                <li>Bahan pegas berkualitas tinggi mencegah deformasi.</li>
+            </ul>
+
+            <!-- Tombol menuju artikel lengkap -->
+            <div class="mt-3">
+                <a href="http://id.hlc-metalparts.com/news/types-of-springs-78874831.html" target="_blank" class="btn btn-primary btn-sm" title="Baca artikel lengkap tentang Jenis Pegas di HLC Metalparts">
+            🔗 Baca Selengkapnya
+        </a>
+            </div>
+        </article>
+
+
+    </div>
+</section>
+
+<section id="kontak" class="py-5">
+    <div class="container">
+        <h2>Kontak</h2>
+        <p><strong>Email:</strong> aliefiansubagia803@gmail.com</p>
+        <p> <strong>WhatsApp:</strong>
+            <a href="https://wa.me/6285646011719" target="_blank" class="btn btn-success btn-sm"> <i class="bi bi-whatsapp"></i> 0856-4601-1719 (Pak Sutrisno) </a>
+        </p>
+        <p> <strong>WhatsApp:</strong>
+            <a href="https://wa.me/6281234149722" target="_blank" class="btn btn-success btn-sm"> <i class="bi bi-whatsapp"></i> 08123-4149-722 (Aliefian RS) </a>
+        </p>
+        <p> <strong>WhatsApp:</strong>
+            <a href="https://wa.me/628970180971" target="_blank" class="btn btn-success btn-sm"> <i class="bi bi-whatsapp"></i> 0897-0180-971 (Mas Ryansyah) </a>
+        </p>
+        <p> <strong>WhatsApp:</strong>
+            <a href="https://wa.me/6281333563005" target="_blank" class="btn btn-success btn-sm"> <i class="bi bi-whatsapp"></i> 0813-3356-3005 (Azel) </a>
+        </p>
+        <h3 class="mt-4">Kirim Pesan</h3>
+        <form id="contactForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nama:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Pesan:</label>
+                <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+        </form>
+
+        <!-- Status pesan setelah dikirim -->
+        <div id="statusMessage" class="mt-3"></div>
+
+        <!-- Library dan koneksi ke file JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <script src="script.js"></script>
+
+        <div class="mt-5">
+            <h3>Lokasi Kami di Google Maps</h3>
+            <div class="ratio ratio-16x9">
+                <iframe src="https://www.google.com/maps?q=-7.4615833,112.6888611&hl=id&z=16&output=embed" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-100 h-100"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+        <p class="mb-0">&copy; 2025 CV Global Indotech. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+
+</html>
